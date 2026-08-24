@@ -22,15 +22,18 @@ La vendedora con mayor valor de ventas es **Camila Ruiz**, con **$7.152.600**.
 
 ### ¿Cuál es el producto más vendido?
 
-El producto más vendido por cantidad de unidades es **Jean clásico**, con **54 unidades**.
+Usando `value_counts()`, los productos que aparecen más veces en los registros de ventas son:
 
-El segundo producto es **Cargador USB-C**, con **46 unidades**.
+- **Jean clasico**: **10 apariciones**.
+- **Cargador USB-C**: **10 apariciones**.
+
+Existe un empate por cantidad de registros. Si se mide por unidades vendidas, **Jean clasico** ocupa el primer lugar con **54 unidades**, seguido de **Cargador USB-C** con **46 unidades**.
 
 ### ¿Qué decisión tomaría el dueño del negocio?
 
 El dueño debería priorizar la categoría **Electrónica**, porque es la que produce mayores ingresos. También debería:
 
-- Mantener suficiente inventario de **Jean clásico** y **Cargador USB-C**, que son los productos con mayor rotación.
+- Mantener suficiente inventario de **Jean clasico** y **Cargador USB-C**, que son los productos con mayor rotación.
 - Reconocer las buenas ventas de **Camila Ruiz** y revisar sus prácticas para compartirlas con el resto del equipo.
 - Promocionar productos de Ropa para reducir la diferencia entre categorías.
 - Revisar los registros incompletos antes de tomar decisiones definitivas: hay **3 precios unitarios** y **2 vendedores** sin dato.
