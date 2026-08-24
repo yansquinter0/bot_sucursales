@@ -93,3 +93,6 @@ plt.show()
 # 6c. AHORA USTEDES: ¿cuál es el producto que aparece más veces 
 # en las ventas? Investiguen la función value_counts() y 
 # apliquenla a la columna 'producto'
+productos_mas_vendidos = df_consolidado['producto'].value_counts()
+print('\nProductos con más apariciones en las ventas:')
+print(productos_mas_vendidos.head())
