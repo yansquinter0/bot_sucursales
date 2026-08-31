@@ -46,6 +46,36 @@ El dueño debería priorizar la categoría **Electrónica**, porque es la que pr
 - Categorías: Electrónica y Ropa.
 - Período de datos: junio de 2026.
 
+## Sistema de automatización
+
+El proyecto ahora incluye un sistema de automatización que **vigila la carpeta `Datos/`** en busca de nuevos informes de sucursales. La idea es que ya no tengas que borrar ni mover nada: basta con soltar el archivo nuevo en la carpeta y el programa hace todo por sí solo.
+
+### ¿Qué hace el sistema?
+
+Cada vez que se detecta un archivo nuevo, el programa:
+
+1. **Relee todos los informes** de la carpeta `Datos/` (tanto `.csv` como `.xlsx`).
+2. **Estandariza las columnas**, para que todos los reportes tengan el mismo formato (fecha, producto, categoria, cantidad, precio_unitario, vendedor, metodo_pago).
+3. **Consolida y limpia** los datos (une todo y elimina duplicados).
+4. **Actualiza el archivo** `Resultados/consolidado_limpio.xlsx`.
+5. **Regenera los gráficos** `grafico_categoria.png` y `grafico_ventas_vendedor.png`.
+6. **Agrega una entrada al log** `Resultados/log_automatizacion.txt` registrando la fecha, el archivo detectado y el total de registros procesados.
+
+### ¿Cómo detecta los archivos nuevos?
+
+El programa lleva un registro de los archivos que ya vio (`archivos_vistos`). En un bucle, compara esa lista con lo que hay actualmente en `Datos/`. Cuando aparecen archivos que no estaban antes, se dispara la automatización y se actualiza la lista de archivos conocidos. El bucle repite la revisión cada **5 segundos**.
+
+### ¿Qué pasa cuando encuentra uno?
+
+Se imprime en consola un mensaje tipo:
+
+```text
+Nuevo archivo detectado: {'sucursal_medellin_reporte2.csv'}
+Proceso completado - log y gráficos actualizados en Resultados/
+```
+
+Y de forma inmediata se actualizan el consolidado, los gráficos y el log.
+
 ## Ejecución
 
 Instala las dependencias:
@@ -59,5 +89,7 @@ Ejecuta el programa desde la carpeta principal del proyecto:
 ```powershell
 python bot.py
 ```
+
+El programa queda **vigilando** la carpeta `Datos/`. Para probarlo, arrastra y suelta un informe nuevo (por ejemplo `sucursal_cali_reporte2.csv`) dentro de `Datos/` y observa cómo se actualizan los resultados por sí solos. Se detiene con `Ctrl+C`.
 
 Los resultados se guardan en la carpeta `Resultados/`.
