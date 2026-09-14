@@ -103,7 +103,12 @@ def procesar_todo(archivo_nuevo):
     for archivo in archivos_xlsx:
         lista_informes.append(pd.read_excel(archivo, engine='openpyxl'))
 
-    # Estandarización de columnas (Tu código integrado)
+    # --- Código integrado del template.py (estandarización de columnas) ---
+    # enumerate() devuelve el indice (i) junto con cada dataframe (df) de la
+    # lista. Con ese indice podemos reemplazar el informe dentro de la lista
+    # por su version renombrada. Solo el informe de Bogotá trae los nombres
+    # distintos; el if con 'Fecha_Venta' lo identifica y a ese único archivo
+    # se le renombran sus columnas para que queden igual que los otros 3.
     for i, df in enumerate(lista_informes):
         if 'Fecha_Venta' in df.columns:
             lista_informes[i] = df.rename(columns={
@@ -116,9 +121,17 @@ def procesar_todo(archivo_nuevo):
                 'Pago': 'metodo_pago',
             })
 
-    # Consolidación y limpieza
+    # Consolidación y limpieza (sin duplicados)
     df_consolidado = pd.concat(lista_informes, ignore_index=True)
     df_consolidado = df_consolidado.drop_duplicates()
+
+    # Limpieza de espacios vacíos: quita espacios sobrantes al inicio o final
+    # de las columnas de texto (limpieza sugerida con ayuda de IA)
+    columnas_texto = ['producto', 'categoria', 'vendedor', 'metodo_pago']
+    for columna in columnas_texto:
+        df_consolidado[columna] = df_consolidado[columna].str.strip()
+
+    # Valor total de cada venta = cantidad * precio unitario
     df_consolidado['venta_total'] = df_consolidado['cantidad'] * df_consolidado['precio_unitario']
     df_consolidado.to_excel(carpeta_resultados / "consolidado_limpio.xlsx", index=False)
 
