@@ -1,0 +1,19 @@
+============================================================
+RESUMEN EJECUTIVO
+============================================================
+
+1. Categoria que mas vende:
+   - Electronica con $ 19,374,700
+
+2. Vendedor con mas ventas:
+   - Camila Ruiz con $ 7,152,600
+
+3. Producto mas vendido (value_counts):
+   - Jean clasico con 10 transacciones
+
+4. Promedio de venta por transaccion (mean):
+   - $ 423,360
+
+Registros procesados: 75
+
+============================================================

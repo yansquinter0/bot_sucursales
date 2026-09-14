@@ -1,0 +1,5 @@
+﻿fecha,producto,categoria,cantidad,precio_unitario,vendedor,metodo_pago
+2026-08-24,Tablet,Electronica,2,1500000,Luis,Efectivo
+2026-08-25,Blusa,Ropa,5,38000,Maria,Tarjeta
+2026-08-26,Monitor,Electronica,1,850000,Luis,Tarjeta
+2026-08-27,Jean,Ropa,3,72000,Maria,Efectivo

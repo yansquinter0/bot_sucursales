@@ -1,8 +1,20 @@
-Proceso ejecutado: 2026-08-31 18:16:50.402104
+﻿Proceso ejecutado: 2026-08-31 18:16:50.402104
 Archivo(s) detectado(s): {'sucursal_medellin_reporte2.csv'}
 Total de registros procesados: 67
 ---
 Proceso ejecutado: 2026-08-31 18:17:27.551488
 Archivo(s) detectado(s): {'sucursal_cali_reporte2.csv'}
 Total de registros procesados: 71
+---
+Proceso ejecutado: 2026-09-14 14:53:48.025431
+Archivo(s) detectado(s): {'sucursal_medellin_reporte2.csv'}
+Total de registros procesados: 67
+---
+Proceso ejecutado: 2026-09-14 14:53:55.136099
+Archivo(s) detectado(s): {'sucursal_cali_reporte2.csv'}
+Total de registros procesados: 71
+---
+Proceso ejecutado: 2026-09-14 14:54:02.898881
+Archivo(s) detectado(s): {'sucursal_bogota_reporte2.csv'}
+Total de registros procesados: 75
 ---
